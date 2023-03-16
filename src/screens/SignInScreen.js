@@ -1,24 +1,35 @@
-import { Image, StyleSheet, View } from 'react-native';
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  View,
+} from 'react-native';
 import Input, { KeyboardTypes, ReturnKeyTypes } from '../components/Input';
 
 const SignInScreen = () => {
   return (
-    <View style={styles.container}>
-      <Image source={require('../../assets/main.png')} style={styles.image} />
-      {/* <Text>SignInScreen</Text> */}
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.select({ ios: 'padding' })}
+    >
+      <View style={styles.container}>
+        <Image source={require('../../assets/main.png')} style={styles.image} />
+        {/* <Text>SignInScreen</Text> */}
 
-      <Input
-        title={'이메일'}
-        placeholder="your@email.com"
-        keyboardTyupe={KeyboardTypes.EMAIL}
-        returnKeyType={ReturnKeyTypes.NEXT}
-      />
-      <Input
-        title={'비밀번호'}
-        returnKeyType={ReturnKeyTypes.DONE}
-        secureTextEntry
-      />
-    </View>
+        <Input
+          title={'이메일'}
+          placeholder="your@email.com"
+          keyboardTyupe={KeyboardTypes.EMAIL}
+          returnKeyType={ReturnKeyTypes.NEXT}
+        />
+        <Input
+          title={'비밀번호'}
+          returnKeyType={ReturnKeyTypes.DONE}
+          secureTextEntry
+        />
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 

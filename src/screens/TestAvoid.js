@@ -4,14 +4,18 @@ import {
   Platform,
   StyleSheet,
   TextInput,
+  useWindowDimensions,
   View,
 } from 'react-native';
 
 const TestAvoid = () => {
+  const height = useWindowDimensions().height;
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
       behavior={Platform.select({ ios: 'padding' })}
+      contentContainerStyle={{ flex: 1 }}
     >
       <View style={{ flex: 1 }}>
         <View style={[styles.box, { backgroundColor: '#737373' }]}>

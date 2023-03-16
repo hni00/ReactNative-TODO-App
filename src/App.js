@@ -9,7 +9,6 @@ const App = () => {
       <StatusBar style="dark" />
       <SignInScreen />
       {/* <Text style={{ fontSize: 30 }}>TODO App</Text> */}
-      <TestAvoid />
     </View>
   );
 };
